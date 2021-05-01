@@ -11,7 +11,6 @@ import os
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='m! ', intents=intents)
-bot.remove_command('help')
 
 
 for filename in os.listdir('./module'):
@@ -80,6 +79,8 @@ async def on_ready():
     bot_name = bot.user.name
     bot_id = bot.user.id
     package_version = discord.__version__
+
+    bot.unload_extension(f"module.{fr.Unstart}")
 
     msg = "\nLogged in as: {0} - {1} \nVersion: {2} \n".format(bot_name, bot_id, package_version)
 
