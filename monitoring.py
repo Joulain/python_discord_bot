@@ -80,7 +80,8 @@ async def on_ready():
     bot_id = bot.user.id
     package_version = discord.__version__
 
-    bot.unload_extension(f"module.{fr.Unstart}")
+    for a in fr.UNSTART:
+        bot.unload_extension(f"module.{a}")
 
     msg = "\nLogged in as: {0} - {1} \nVersion: {2} \n".format(bot_name, bot_id, package_version)
 

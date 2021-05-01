@@ -1,10 +1,9 @@
-
 def file_reader(file):
 
 	with open(file, "r") as f:
-		return f.readline()[:-1]
+		return f.read()[:-1]
 
 TOKEN = file_reader('ressources/Token')
 
 
-Unstart = file_reader('ressources/unstarting_module')
+UNSTART = file_reader('ressources/unstarting_module').split("\n")
