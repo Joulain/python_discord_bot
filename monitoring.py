@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# v2.1
+# v2.2
 # by joulain
 
 from ressources import file_reader as fr

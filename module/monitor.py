@@ -4,7 +4,7 @@ from discord.ext import commands
 import discord
 
 
-class Monitor(commands.Cog):
+class monitor(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
  
@@ -126,10 +126,10 @@ class Monitor(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Monitor(bot))
+    bot.add_cog(monitor(bot))
 
 
 def teardown(bot):
-    bot.remove_cog(Monitor(bot))
+    bot.remove_cog(monitor(bot))
 
 

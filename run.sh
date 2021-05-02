@@ -1,3 +1,3 @@
 #!/bin/bash
 
-nohup python3 -u ./monitoring &
+nohup python3 -u ./monitoring.py &

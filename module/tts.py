@@ -24,13 +24,15 @@ def NTts():
     return commands.check(checker)
 
 
-class Tts(commands.Cog, description="test"):
+class tts(commands.Cog):
     def __init__(self, bot):
             self.bot = bot
             self.bot.ch_tts = None
             self.bot.language = 'fr'
             self.bot.vc = None
             self.bot.playlist = []
+
+    __doc__ = "module of tts for people with mic problem (or for lazy people)"
 
 
     async def play_next(self, ctx):
@@ -63,7 +65,7 @@ class Tts(commands.Cog, description="test"):
                     await self.play_next(ctx)
 
     
-    @commands.command(pass_context=True, aliases=["tts"], description="use this command once you are in a voice channel to start the tts module")
+    @commands.command(pass_context=True, aliases=["tts"], help="use this command once you are in a voice channel to start the tts module")
     @commands.guild_only()
     @NTts()
     async def text_to_speech(self, ctx):    
@@ -85,7 +87,7 @@ class Tts(commands.Cog, description="test"):
             await self.bot.ch_tts.set_permissions(role, view_channel=True)
 
 
-    @commands.command(pass_context=True, aliases=["atts"], description="use this command by tagging another user to add him to the tts module")
+    @commands.command(pass_context=True, aliases=["atts"], help="use this command by tagging another user to add him to the tts module")
     @commands.guild_only()
     @commands.has_role("tts")
     async def add_text_to_speech(self, ctx, member: discord.Member):
@@ -93,7 +95,7 @@ class Tts(commands.Cog, description="test"):
         await member.add_roles(role)
 
     
-    @commands.command(pass_context=True, aliases=["rtts"], description="no need to be a genius to understand how to use the remove command")
+    @commands.command(pass_context=True, aliases=["rtts"], help="no need to be a genius to understand how to use the remove command")
     @commands.guild_only()
     @commands.has_role("tts")
     async def remove_text_to_speech(self, ctx, member: discord.Member):
@@ -101,7 +103,7 @@ class Tts(commands.Cog, description="test"):
         await member.remove_roles(role)
 
 
-    @commands.command(pass_context=True, aliases=["stts"], description="use this command to stop the tts module for everybody")
+    @commands.command(pass_context=True, aliases=["stts"], help="use this command to stop the tts module for everybody")
     @commands.guild_only()
     @commands.has_role("tts")
     async def stop_text_to_speech(self, ctx):
@@ -191,10 +193,10 @@ class Tts(commands.Cog, description="test"):
 
 
 def setup(bot):
-    bot.add_cog(Tts(bot))
+    bot.add_cog(tts(bot))
 
 
 def teardown(bot):
-    bot.remove_cog(Tts(bot))
+    bot.remove_cog(tts(bot))
 
 
