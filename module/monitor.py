@@ -15,7 +15,7 @@ class Monitor(commands.Cog):
             pass
         else:
             if message.author.id == 501719851740561408:
-                c = bot.get_channel(833767709522526299)
+                c = self.bot.get_channel(833767709522526299)
                 mess = await c.history(limit=1).flatten()
                 for m in mess:
 
@@ -52,8 +52,8 @@ class Monitor(commands.Cog):
             if not ctx.guild_id:
                 pass
             else:
-                guild = bot.get_guild(ctx.guild_id)
-                channel = bot.get_channel(ctx.channel_id)
+                guild = self.bot.get_guild(ctx.guild_id)
+                channel = self.bot.get_channel(ctx.channel_id)
 
                 msg = "an old message has been deleted\n"
                 msg_live = "[{0}] <raw> {{{1}}} an old message was deleted\n".format(guild, channel)
@@ -94,8 +94,8 @@ class Monitor(commands.Cog):
             if "guild_id" not in ctx.data:
                 pass
             else:
-                guild = bot.get_guild(int(ctx.data["guild_id"]))
-                channel = bot.get_channel(int(ctx.data["channel_id"]))
+                guild = self.bot.get_guild(int(ctx.data["guild_id"]))
+                channel = self.bot.get_channel(int(ctx.data["channel_id"]))
 
                 msg = "a message has been modified into : {0[content]}\n".format(ctx.data)
                 msg_live = "[{0}] <raw> {{{1}}} a message has been modified into : {2[content]} ({2[id]})\n".format(guild, channel, ctx.data)

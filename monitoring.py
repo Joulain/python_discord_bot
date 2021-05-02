@@ -11,7 +11,7 @@ import os
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='m! ', intents=intents)
-
+bot.remove_command('help')
 
 for filename in os.listdir('./module'):
     if filename.endswith('.py'):
