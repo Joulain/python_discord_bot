@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# v2.2
+# v2.3
 # by joulain
 
 from ressources import file_reader as fr
@@ -18,7 +18,7 @@ for filename in os.listdir('./module'):
         bot.load_extension(f'module.{filename[:-3]}')
 
 
-@bot.command()
+@bot.command(hidden=True)
 @commands.is_owner()
 async def load(ctx, extension):
     try:
@@ -31,7 +31,7 @@ async def load(ctx, extension):
         await ctx.channel.send("I failed to load the extension !")
 
 
-@bot.command()
+@bot.command(hidden=True)
 @commands.is_owner()
 async def unload(ctx, extension):
     try:
@@ -68,7 +68,7 @@ async def unload_error(ctx, error):
         print(error)
 
 
-@bot.command()
+@bot.command(hidden=True)
 @commands.is_owner()
 async def restart(ctx):
     call("./reboot.sh")

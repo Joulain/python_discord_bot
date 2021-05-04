@@ -32,7 +32,7 @@ class tts(commands.Cog):
             self.bot.vc = None
             self.bot.playlist = []
 
-    __doc__ = "module of tts for people with mic problem (or for lazy people)"
+    __doc__ = "module tts for people with mic problem (or for lazy people)"
 
 
     async def play_next(self, ctx):
