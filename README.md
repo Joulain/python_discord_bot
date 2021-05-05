@@ -1,15 +1,17 @@
 # Joulain python discord bot
 
 ### version & editor 
-* version : 2.2
+* version : 2.3
 
 * made by [Joulain]
 
-### cogs (module folder)
-* tts : help muted people to speak [module explaination](#tts-module)\
--> not optimised for multiple server use
+### module (aka python cogs)
+* [**tts**](#tts-module) : use text to speech google api to speak outloud in the voice channel what muted poeple can't say.\
+-> not optimised for multiple server use (yet)
 
-* monitor : read message and attachments and write them [module explaination](#monitor-module)
+* [**monitor**](#monitor-module) : write everything that happends in Textchannel to keep a trace of it.
+
+* [**help**](#help-module) : explain the unowner commands
 
 ### ressources
 * read data (token, audio files, etc ...)
@@ -17,15 +19,33 @@
 ### past
 * holder for the output data
 
-
-
-
 # Module explaination
 
 ### tts module
 
-> comming soon
+> commands :
+>* tts
+>* atts
+>* mtts
+>* stts
+
+> events :
+>* on_message
 
 ### monitor module
 
-> coming soon
+> commands :
+>* None
+
+> events :
+>* on_message
+>* on_raw_edit_message
+>* on_raw_delete_message
+
+### help module
+
+> commands :
+>* help
+
+> events :
+>* None
